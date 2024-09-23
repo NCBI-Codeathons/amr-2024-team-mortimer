@@ -1,0 +1,10 @@
+executor: "slurm"
+software-deployment-method: "conda"
+latency-wait: 60
+jobs: 100
+default-resources:
+  runtime: 10
+  slurm_partition: "batch"
+  mem_mb: 4000
+  tasks: 1
+  nodes: 1
