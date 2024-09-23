@@ -1,7 +1,7 @@
 # Team Project Name
 
 List of participants and affiliations:
-- Participant, Affiliation (Team Leader)
+- Tatum Mortimer, Department of Population Health, University of Georgia (Team Leader)
 - Participant, Affiliation
 
 ## Project Goals
