@@ -1,16 +1,19 @@
+rule all:
+	
+
 rule annotation:
 	input:
-		"data/genome_assembly"
+		assembly = "data/genome_assembly/contigs.fasta"
 	output:
-		"data/genome_annotation"
+		"data/genome_annotation/samples"
 	conda:
 		"prokka.yaml"
 	resources:
 		cpus=8
 	shell:
-		"""	
-		"prokka --force --genus (insert genus here) --species (insert species here)  --outdir (insert output directory here)
-		"""
+		"prokka --force --genus Neisseria --species gonorrhoeae --outdir data/genome_annotation/{wildcards.samples} --prefix {wildcards.samples} --locustag {wildcards.samples} {input.assembly}"
+
+
 rule pseudofinder:
 	input:
 		"data/genome_annotation"
