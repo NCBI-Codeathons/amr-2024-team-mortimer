@@ -4,14 +4,13 @@ rule annotation:
 	output:
 		"data/genome_annotation"
 	conda:
-		"bakta.yaml"
+		"prokka.yaml"
 	resources:
-		
+		cpus=8
 	shell:
 		"""	
-		annotation command
+		"prokka --force --genus (insert genus here) --species (insert species here)  --outdir (insert output directory here)
 		"""
-
 rule pseudofinder:
 	input:
 		"data/genome_annotation"
