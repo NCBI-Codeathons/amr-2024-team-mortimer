@@ -1,6 +1,3 @@
-rule all:
-	
-
 rule annotation:
 	input:
 		assembly = "data/genome_assembly/contigs.fasta"
