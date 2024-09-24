@@ -1,18 +1,3 @@
-rule rename:
-	input:
-		"/downloads/{genbank_accession}.fastq"
-	output:
-		"/renamed_downloads/{sample number}.fastq"
-	shell:
-		"""
-		for file in /data/*/.fastq
-		
-		do
-		directory_name=$(dirname $file)
-		accession=$(basename $directory_name)
-		mv "${file}" "${directory_name}/${accession}_$(basename $file
-		""
- 
 rule annotation:
 	input:
 		assembly = "data/genome_assembly/contigs.fasta"
