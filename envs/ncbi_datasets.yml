@@ -1,0 +1,6 @@
+name: ncbi_datasets
+channels:
+  - conda-forge
+dependencies:
+  - ca-certificates=2024.8.30=hbcca054_0
+  - ncbi-datasets-cli=16.29.0=ha770c72_0
