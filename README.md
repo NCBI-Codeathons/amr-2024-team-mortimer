@@ -5,6 +5,7 @@ List of participants and affiliations:
 - Farah Saeed, Franklin College of Arts and Sciences, University of Georgia 
 - Shriya Garg, Franklin College of Arts and Sciences, University of Georgia
 - Brittany Henry, Department of Population Health, University of Georgia
+- Shanita Zaman Smrity, Department of Population Health, University of Georgia
 
 ## Project Goals
 
