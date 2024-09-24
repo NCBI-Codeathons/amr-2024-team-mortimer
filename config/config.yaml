@@ -7,3 +7,7 @@ samples: config/samples.tsv
 # Format should include sample names in 1st column, reference for data in 2nd column,
 # raw MIC in 3rd column, and numeric MIC in 4th column (cannot include >,<,=)
 mics: config/mics.tsv
+
+# path to AMRFinderPlus output
+# downloaded from MicroBIGG-E
+amrfinder: config/amrfinder.tsv
