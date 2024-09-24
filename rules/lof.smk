@@ -1,6 +1,6 @@
 rule annotation:
-    input:
-        "data/genome_assembly"
+	input:
+		"data/genome_assembly"
     output:
         "data/genome_annotation"
     conda:
