@@ -1,10 +1,12 @@
 rule rename:
 	input:
+		"/downloads/{genbank_accession}.fastq"
 	output:
-	conda:
+		"/renamed_downloads/{sample number}.fastq"
 	shell:
 		"""
-		for file in ncbi_dataset/data/*/protein.faa
+		for file in /data/*/.fastq
+		
 		do
 		directory_name=$(dirname $file)
 		accession=$(basename $directory_name)
