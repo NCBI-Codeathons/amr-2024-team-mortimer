@@ -1,3 +1,16 @@
+rule rename:
+	input:
+	output:
+	conda:
+	shell:
+		"""
+		for file in ncbi_dataset/data/*/protein.faa
+		do
+		directory_name=$(dirname $file)
+		accession=$(basename $directory_name)
+		mv "${file}" "${directory_name}/${accession}_$(basename $file
+		""
+ 
 rule annotation:
 	input:
 		assembly = "data/genome_assembly/contigs.fasta"
