@@ -4,6 +4,7 @@ List of participants and affiliations:
 - Tatum Mortimer, Department of Population Health, University of Georgia (Team Leader)
 - Farah Saeed, Franklin College of Arts and Sciences, University of Georgia 
 - Shriya Garg, Franklin College of Arts and Sciences, University of Georgia
+- Brittany Henry, Department of Population Health, University of Georgia
 
 ## Project Goals
 
