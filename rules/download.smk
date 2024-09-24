@@ -21,4 +21,13 @@ rule download_assemblies:
         mkdir -p data
         datasets download genome accession --inputfile {input} --filename {output} --no-progressbar --include genome,gbff
         """
-        
+
+rule rename:
+	input:
+		"data/genomes.zip"
+        output:
+		"renamed_data/{sample number}.fastq"
+        shell:
+		"""
+                for file in /data/*:
+		"""
