@@ -1,0 +1,9 @@
+# path to sample sheet (tab-separated)
+# Format should have sample names in first column and assembly accessions in third column
+# 2nd and 4th columns not currently used
+samples: config/samples.tsv
+
+# path to susceptibility data (tab-separated)
+# Format should include sample names in 1st column, reference for data in 2nd column,
+# raw MIC in 3rd column, and numeric MIC in 4th column (cannot include >,<,=)
+mics: config/mics.tsv
