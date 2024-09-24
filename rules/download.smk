@@ -30,4 +30,7 @@ rule rename:
         shell:
 		"""
                 for file in /data/*:
+			write some code to navigate to the file we need
+			mv this file into the renamed_data folder
+			rename this file including (wildcards.samples)
 		"""
