@@ -24,6 +24,17 @@ rule download_assemblies:
         datasets download genome accession --inputfile {input} --filename {output} --no-progressbar --include genome,gbff
         """
 
+rule unzip:
+    input:
+        "data/genomes.zip"
+    output:
+        assemblies="data/ncbi_dataset/data/{accession}/{}.fna",
+        annotations="data/ncbi_dataset/data/{accession}/genomic.gbff"
+    shell:
+        """
+        unzip data/genomes.zip
+        """
+
 rule rename:
 	input:
 		"/work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/"
