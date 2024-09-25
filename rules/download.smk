@@ -52,7 +52,7 @@ checkpoint unzip:
         """
 
 def match_assemblies_annotations(wildcards):
-    demultiplex_output = checkpoints.demultiplex.get(experiment=wildcards.unzip).output[0]
+    demultiplex_output = checkpoints.unzip.get(**wildcards).output[0]
     accession = samples_dict[wildcards.sample]["genbank_accession"]
     assembly = glob.glob(f"ncbi_dataset/data/{accession}/*.fna")[0]
     annotation = f"ncbi_dataset/data/{accession}/genomic.gbff"
