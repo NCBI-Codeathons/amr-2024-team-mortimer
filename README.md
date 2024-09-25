@@ -25,6 +25,14 @@ Our project has two goals:
     - Predict MICs using linear regression from AMRFinderPlus core genes and alleles
     - Predict MICs using linear regression from AMRFinderPlsu core genes and alleles AND efflux pump LOF
     - Compare predictions
+## Installation of Pseudofinder Software
+- Load the modules-Python (Latest Version) and Anaconda3/2024
+- Installation code
+  1. git clone https://github.com/filip-husnik/pseudofinder.git
+  2. cd pseudofinder
+  3. bash setup.sh
+  4. conda init
+  5. conda activate pseudofinder
 
 ## Results
 
