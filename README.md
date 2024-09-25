@@ -34,6 +34,14 @@ Our project has two goals:
   4. conda init
   5. conda activate pseudofinder
 
+## TO DO
+- finish testing download and renaming rules
+- create appropriate conda environment for pseudofinder
+- test pseudofinder rule
+- create rule for cdhit
+- write rule to run script that reformats AMRFinder output
+- write script to compare linear models with and without LOF mutations
+
 ## Results
 
 ## Future Work
