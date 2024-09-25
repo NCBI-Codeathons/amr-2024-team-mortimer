@@ -12,6 +12,8 @@ rule download_proteins:
     output:
         temp("data/proteins.zip"),
         temp("data/proteins.faa")
+    params:
+        species=config["species"]
     conda:
         "../envs/ncbi_datasets.yml"
     resources:
@@ -19,7 +21,7 @@ rule download_proteins:
     shell:
         """
         mkdir -p data
-        datasets download genome taxon "{config['species']}" --assembly-level complete --include protein --filename proteins.zip
+        datasets download genome taxon {params.species} --assembly-level complete --include protein --filename proteins.zip
 	unzip -o proteins.zip
 	cat data/ncbi_dataset/data/*/*.faa > data/proteins.faa
 	"""
