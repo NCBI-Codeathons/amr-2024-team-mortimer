@@ -8,6 +8,21 @@ rule generate_ncbi_datasets_input:
         tail -n +2 {input} | cut -f3 > {output}
         """
 
+rule download_proteins:
+    output:
+        temp("data/proteins.zip"),
+        temp("data/proteins.faa")
+    conda:
+        "../envs/ncbi_datasets.yml"
+    resources:
+        runtime=30
+    shell:
+        """
+        mkdir -p data
+        datasets download genome taxon "{config['species']}" --assembly-level complete --include protein --filename proteins.zip
+	unzip -o proteins.zip
+	cat data/ncbi_dataset/data/*/*.faa > data/proteins.faa
+	"""
 
 rule download_assemblies:
     input:
@@ -42,13 +57,13 @@ def match_assemblies_annotations(wildcards):
     return {"assembly":assembly, "annotation":annotation}
 
 rule rename:
-	input:
-		unpack(match_assemblies_annotations)
-	output:
-		"output/assembly/{wildcards.samples}_genomic.fna"
-		"output/annotations/{wildcards.samples}_genomic.gbff"
-        shell:
-		"""
-		mv {input.assembly} /output/assembly/{wildcards.samples}_genomic.fna
-		mv {input.annotation} /output/annotation/{wildcards.samples}_genomic.gbff
-		"""
+    input:
+        unpack(match_assemblies_annotations)
+    output:
+        "output/assembly/{sample}_genomic.fna",
+        "output/annotations/{sample}_genomic.gbff"
+    shell:
+        """
+        mv {input.assembly} /output/assembly/{wildcards.samples}_genomic.fna
+        mv {input.annotation} /output/annotation/{wildcards.samples}_genomic.gbff
+        """
