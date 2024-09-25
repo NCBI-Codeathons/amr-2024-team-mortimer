@@ -1,8 +1,21 @@
+rule make_blast_db:
+    input:
+        config["proteins"]
+    output:
+        expand("data/blastdb/protein_db.{ext}", ext=["pdb","phr","pin","pot","psq","ptf","pto"])
+    conda:
+        "blast.yml"
+    shell:
+        """
+        makeblastdb -in {input} -dbtype prot -out data/blastdb/protein_db
+        """
+
 rule pseudofinder:
 	input:
-		"data/genome_annotation"
+        blastdb=expand("data/blastdb/protein_db.{ext}", ext=["pdb","phr","pin","pot","psq","ptf","pto"]),
+		annotation="data/annotations/{sample}.gbff"
 	output:
-		"data/pseudofinder_output"
+		"data/pseudofinder/{sample}/{sample}_psuedos.fasta"
 	conda:
 		"envs/pseudofinder.yml"
 	shell:
