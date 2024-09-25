@@ -23,7 +23,7 @@ rule download_proteins:
         mkdir -p data
         datasets download genome taxon {params.species} --assembly-level complete --include protein --filename proteins.zip
 	unzip -o proteins.zip
-	cat data/ncbi_dataset/data/*/*.faa > data/proteins.faa
+	cat ncbi_dataset/data/*/*.faa > data/proteins.faa
 	"""
 
 rule download_assemblies:
@@ -45,7 +45,7 @@ checkpoint unzip:
     input:
         "data/genomes.zip"
     output:
-        directory("data/ncbi_dataset/data/{accession}/"),
+        directory(expand("ncbi_dataset/data/{accession}/", accession=samples["genbank_accession"]))
     shell:
         """
         unzip data/genomes.zip
@@ -53,19 +53,19 @@ checkpoint unzip:
 
 def match_assemblies_annotations(wildcards):
     demultiplex_output = checkpoints.demultiplex.get(experiment=wildcards.unzip).output[0]
-    accession = samples['genbank_accession'][samples['sample'] == wildcards.sample].values[0]
-    assembly = glob.glob(f"data/ncbi_dataset/data/{accession}/*.fna")[0]
-    annotation = f"data/ncbi_dataset/data/{accession}/genomic.gbff"
+    accession = samples_dict[wildcards.sample]["genbank_accession"]
+    assembly = glob.glob(f"ncbi_dataset/data/{accession}/*.fna")[0]
+    annotation = f"ncbi_dataset/data/{accession}/genomic.gbff"
     return {"assembly":assembly, "annotation":annotation}
 
 rule rename:
     input:
         unpack(match_assemblies_annotations)
     output:
-        "output/assembly/{sample}_genomic.fna",
-        "output/annotations/{sample}_genomic.gbff"
+        "data/assemblies/{sample}.fna",
+        "data/annotations/{sample}.gbff"
     shell:
         """
-        mv {input.assembly} /output/assembly/{wildcards.samples}_genomic.fna
-        mv {input.annotation} /output/annotation/{wildcards.samples}_genomic.gbff
+        mv {input.assembly} data/assembly/{wildcards.samples}_genomic.fna
+        mv {input.annotation} data/annotation/{wildcards.samples}_genomic.gbff
         """
