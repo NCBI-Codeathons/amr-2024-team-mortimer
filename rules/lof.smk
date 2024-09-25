@@ -20,7 +20,7 @@ rule pseudofinder:
 		"envs/pseudofinder.yml"
 	shell:
 		"""
-		pseudofinder command
+		pseudofinder.py annotate --genome {input.annotation} --database data/blastdb/protein_db --outprefix {wildcards.sample}" 
 		"""
 
 rule cluster_pseudogenes:
