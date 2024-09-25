@@ -24,13 +24,13 @@ rule download_assemblies:
 
 rule rename:
 	input:
-		"data/genomes.zip"
+		"/work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/"
         output:
-		"renamed_data/{sample number}.fastq"
+		"assembly/{wildcards.samples}_genomic.fna"
+		"annotations/{wildcards.samples}_genomic.gbff"
         shell:
 		"""
-                for file in /data/*:
-			write some code to navigate to the file we need
-			mv this file into the renamed_data folder
-			rename this file including (wildcards.samples)
+                for /work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/:
+			mv GCA*.1*genomic.fna ~/assembly/{wildcards.samples}_genomic.faa
+			mv GCA*.1*genomic.gbff ~/annotations/{wildcards.samples}_genomic.gbff               
 		"""
