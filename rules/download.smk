@@ -24,16 +24,22 @@ rule download_assemblies:
         datasets download genome accession --inputfile {input} --filename {output} --no-progressbar --include genome,gbff
         """
 
-rule unzip:
+checkpoint unzip:
     input:
         "data/genomes.zip"
     output:
-        assemblies="data/ncbi_dataset/data/{accession}/{}.fna",
-        annotations="data/ncbi_dataset/data/{accession}/genomic.gbff"
+        directory("data/ncbi_dataset/data/{accession}/"),
     shell:
         """
         unzip data/genomes.zip
         """
+
+def match_assemblies_annotations(wildcards):
+    demultiplex_output = checkpoints.demultiplex.get(experiment=wildcards.unzip).output[0]
+    accession = samples['genbank_accession'][samples['sample'] == wildcards.sample].values[0]
+    assembly = glob.glob(f"data/ncbi_dataset/data/{accession}/*.fna")[0]
+    annotation = f"data/ncbi_dataset/data/{accession}/genomic.gbff"
+    return {"assembly":assembly, "annotation":annotation}
 
 rule rename:
 	input:
