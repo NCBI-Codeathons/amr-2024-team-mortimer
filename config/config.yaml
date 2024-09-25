@@ -11,3 +11,6 @@ mics: config/mics.tsv
 # path to AMRFinderPlus output
 # downloaded from MicroBIGG-E
 amrfinder: config/amrfinder.tsv
+
+# species to make blastdb
+species: "Neisseria gonorrhoeae"
