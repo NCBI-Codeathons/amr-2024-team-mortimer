@@ -43,13 +43,12 @@ def match_assemblies_annotations(wildcards):
 
 rule rename:
 	input:
-		"/work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/"
-        output:
-		"assembly/{wildcards.samples}_genomic.fna"
-		"annotations/{wildcards.samples}_genomic.gbff"
+		unpack(match_assemblies_annotations)
+	output:
+		"output/assembly/{wildcards.samples}_genomic.fna"
+		"output/annotations/{wildcards.samples}_genomic.gbff"
         shell:
 		"""
-                for /work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/:
-			mv GCA*.1*genomic.fna ~/assembly/{wildcards.samples}_genomic.faa
-			mv GCA*.1*genomic.gbff ~/annotations/{wildcards.samples}_genomic.gbff               
+		mv {input.assembly} /output/assembly/{wildcards.samples}_genomic.fna
+		mv {input.annotation} /output/annotation/{wildcards.samples}_genomic.gbff
 		"""
