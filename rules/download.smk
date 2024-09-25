@@ -23,4 +23,16 @@ rule download_assemblies:
         mkdir -p data
         datasets download genome accession --inputfile {input} --filename {output} --no-progressbar --include genome,gbff
         """
-        
+
+rule rename:
+	input:
+		"/work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/"
+        output:
+		"assembly/{wildcards.samples}_genomic.fna"
+		"annotations/{wildcards.samples}_genomic.gbff"
+        shell:
+		"""
+                for /work/tdmlab/codeathon_resources/ncbi_dataset/data/GCA*.1/:
+			mv GCA*.1*genomic.fna ~/assembly/{wildcards.samples}_genomic.faa
+			mv GCA*.1*genomic.gbff ~/annotations/{wildcards.samples}_genomic.gbff               
+		"""
