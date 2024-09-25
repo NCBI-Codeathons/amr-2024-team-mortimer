@@ -1,4 +1,4 @@
-Run	disposition	genbank_accession	biosample_acc
+sample	disposition	genbank_accession	biosample_acc
 FLKW01000000	Available	GCA_900087635.2	SAMEA2448460
 FLLG01000000	Available	GCA_900087785.2	SAMEA2448461
 FLLD01000000	Available	GCA_900087865.2	SAMEA2448462
