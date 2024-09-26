@@ -4,7 +4,7 @@ rule make_blast_db:
     output:
         expand("data/blastdb/protein_db.{ext}", ext=["pdb","phr","pin","pot","psq","ptf","pto"])
     conda:
-        "blast.yml"
+        "../envs/blast.yml"
     shell:
         """
         makeblastdb -in {input} -dbtype prot -out data/blastdb/protein_db
