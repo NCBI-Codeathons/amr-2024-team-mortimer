@@ -43,7 +43,7 @@ colnames(DF) <- col_names
 
 
 
-# Restructure the DF and assign 1 for present and 2 for absent  -----------
+# Restructure the DF and assign 1 for present and 0 for absent  -----------
 
 new_DF <- DF %>%
   select(BioSample, Element_symbol) %>%
