@@ -24,7 +24,8 @@ setwd("your_working_directory")
 
 # Import Dataframe --------------------------------------------------------
 
-DF <- read_tsv("amrfinder.tsv", col_names = TRUE, show_col_types = FALSE)
+DF <- read_tsv("amrfinderplus_v2.tsv", col_names = TRUE, show_col_types = FALSE)
+
 
 
 
@@ -41,6 +42,25 @@ col_names <- gsub(" ", "_", col_names)
 # Assign the modified names back to the data frame
 colnames(DF) <- col_names
 
+# Remove '#' from column names
+colnames(DF) <- gsub("#", "", colnames(DF))
+
+
+#Remove all entries that do not contain "Neisseria gonorrhoea"
+#DF <- DF %>%
+#  filter(grepl("Neisseria gonorrhoeae", Scientific_name))
+
+
+#change entries to "EXCLUDE" for "INTERNAL_STOP|PARTIALX|PARTIALP" in the "Method" column
+#DF <- DF %>%
+#  mutate(
+#    Subtype = if_else(grepl("INTERNAL_STOP|PARTIALX|PARTIALP", Method), "EXCLUDE", Subtype),
+#    Subclass = if_else(grepl("INTERNAL_STOP|PARTIALX|PARTIALP", Method), "EXCLUDE", Subclass)
+#  )
+
+# Filter out rows with the specified terms in the Method column
+DF <- DF %>%
+  filter(!grepl("INTERNAL_STOP|PARTIALX|PARTIALP", Method))
 
 
 # Restructure the DF and assign 1 for present and 0 for absent  -----------
@@ -51,9 +71,12 @@ new_DF <- DF %>%
   mutate(present = 1) %>%
   pivot_wider(names_from = Element_symbol, values_from = present, values_fill = list(present = 0))
 
+# Save the tibble to a CSV file
+#write.csv(new_DF, file = "biosample_gene.csv", row.names = FALSE)
 
 
-# Function to check to make sure this working as expected  ----------------
+
+# Code to check to make sure this working as expected  ----------------
 
 count_ones_zeros <- function(df, sample_id) {
   # Filter the dataframe for the specific BioSample
@@ -67,9 +90,14 @@ count_ones_zeros <- function(df, sample_id) {
 }
 
 # Apply the function to a specific BioSample to check for accuracy 
-result <- count_ones_zeros(new_DF, "SAMD00089756")
+result <- count_ones_zeros(new_DF, "SAMD00099414")
 print(result)
 
-# Save the tibble to a CSV file
-#write.csv(new_DF, file = "antibiotic_resistance_data_0-1.csv", row.names = FALSE)
 
+#check the number of unique biosamples
+unique_terms <- DF %>%
+  distinct(BioSample)
+
+#check the number of unique biosamples
+unique_terms <- DF %>%
+  distinct(Element_symbol)
