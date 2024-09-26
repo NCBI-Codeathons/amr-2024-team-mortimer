@@ -15,12 +15,15 @@ rule pseudofinder:
         blastdb=expand("data/blastdb/protein_db.{ext}", ext=["pdb","phr","pin","pot","psq","ptf","pto"]),
 		annotation="data/annotations/{sample}.gbff"
 	output:
-		"data/pseudofinder/{sample}/{sample}_psuedos.fasta"
+		"data/pseudofinder/{sample}/{sample}_pseudos.fasta"
 	conda:
-		"envs/pseudofinder.yml"
+		"../pseudofinder-1.1.0/modules/environment.yml"
+    threads: 16
+    resources:
+        mem=10GB
 	shell:
 		"""
-		pseudofinder.py annotate --genome {input.annotation} --database data/blastdb/protein_db --outprefix {wildcards.sample}" 
+		python3 ../pseudofinder-1.1.0/pseudofinder.py annotate --threads {threads} --genome {input.annotation} --database data/blastdb/protein_db --outprefix data/pseudofinder/{wildcards.sample}/{wildcards.sample}" 
 		"""
 
 rule cluster_pseudogenes:
