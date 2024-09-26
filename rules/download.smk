@@ -48,6 +48,8 @@ checkpoint unzip:
         "data/genomes.zip"
     output:
         directory("ncbi_dataset/data/")
+    shadow:
+        "full"
     shell:
         """
         unzip -o data/genomes.zip
