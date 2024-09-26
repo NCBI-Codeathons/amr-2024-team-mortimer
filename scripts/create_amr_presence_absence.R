@@ -1,35 +1,8 @@
-
-# Empty my environment  ---------------------------------------------------
-rm(list = ls())
-
-# Load packages -----------------------------------------------------------
-
 library(readr)
 library(tidyr)
 library(dplyr)
 
-
-
-
-# see current working directory  -----------------------------------------
-getwd()
-
-
-
-
-
-# set working directory  --------------------------------------------------
-setwd("your_working_directory")
-
-
-# Import Dataframe --------------------------------------------------------
-
-DF <- read_tsv("amrfinderplus_v2.tsv", col_names = TRUE, show_col_types = FALSE)
-
-
-
-
-
+DF <- read_tsv("config/amrfinder.tsv", col_names = TRUE, show_col_types = FALSE)
 
 # Replace the spaces with "_" in the column names  ------------------------
 
@@ -71,8 +44,7 @@ new_DF <- DF %>%
   mutate(present = 1) %>%
   pivot_wider(names_from = Element_symbol, values_from = present, values_fill = list(present = 0))
 
-# Save the tibble to a CSV file
-#write.csv(new_DF, file = "biosample_gene.csv", row.names = FALSE)
+write.csv(new_DF, file = "data/biosample_gene.csv", row.names = FALSE)
 
 
 
