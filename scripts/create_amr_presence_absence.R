@@ -19,7 +19,7 @@ getwd()
 
 
 # set working directory  --------------------------------------------------
-setwd("C:/Users/bh66947/OneDrive - University of Georgia/Mortimer-BH/R_scripts/codeathon/")
+setwd("your_working_directory")
 
 
 # Import Dataframe --------------------------------------------------------
