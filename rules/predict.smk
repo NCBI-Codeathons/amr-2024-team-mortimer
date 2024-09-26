@@ -12,7 +12,7 @@ rule reformat_amrfinderplus:
 
 rule predictions:
     input:
-        "data/"
+        "data/biosample_gene.csv"
     output:
         core_results=expand("data/ast_predictions/{antibiotic}_core.tsv", antibiotic = ["azithromycin", "ceftriaxone", "ciprofloxacin", "penicillin", "tetracycline"]),
         plus_results=expand("data/ast_predictions/{antibiotic}_plus.tsv", antibiotic = ["azithromycin", "ceftriaxone", "ciprofloxacin", "penicillin", "tetracycline"]),
