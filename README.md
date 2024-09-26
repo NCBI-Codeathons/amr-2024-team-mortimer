@@ -42,7 +42,15 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 
 ## Results
 
-### Genetic loci included in models
+### LOF pipeline
+
+We were able to generate the steps to create a matrix of loss-of-function alleles from a collection of bacterial genomes. Unfortunately, due to impacts of Hurrican Helene on our computing cluster, this pipeline could use some more testing!
+
+### AST Prediction
+
+Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinderPlus results from Pathogen Detection, we predicted log-transformed MICs from known resistance-associated loci in *N. gonorrhoeae*.
+
+#### Genetic loci included in models
 
 |Antibiotic|Genetic Loci|
 |----------|-------------|
@@ -52,7 +60,7 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 |Penicillin|blaTEM, penA, porB, mtr operon|
 |Tetracycline|rpsJ, tet(M), porB, mtr operon|
 
-### Prediction of antimicrobial susceptibility is improved by the addition of loss-of-function variation in the mtr operon
+#### Prediction of antimicrobial susceptibility is improved by the addition of loss-of-function variation in the mtr operon
 
 
 |Antibiotic|Adjusted R-squared core model|Adjusted R-squared plus model|Significant plus loci|
