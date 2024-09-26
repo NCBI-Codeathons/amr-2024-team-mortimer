@@ -42,7 +42,8 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 
 ## Results
 
-## Genetic marker/loci associated with antibiotic resistance
+### Genetic loci included in models
+
 |Antibiotic|Genetic Loci|
 |----------|-------------|
 |Azithromycin|23S rRNA, rplD, porB, mtr operon|
@@ -51,9 +52,21 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 |Penicillin|blaTEM, penA, porB, mtr operon|
 |Tetracycline|rpsJ, tet(M), porB, mtr operon|
 
+### Prediction of antimicrobial susceptibility is improved by the addition of loss-of-function variation in the mtr operon
+
+
+|Antibiotic|Adjusted R-squared core model|Adjusted R-squared plus model|Significant plus loci|
+|----------|-----------------------------|-----------------------------|---------------------|
+|Azithromycin|0.332|0.430|mtrC, mtrR|
+|Ciprofloxacin|0.916|0.918|mtrC, mtrR|
+|Ceftriaxone|0.612|0.631|mtrC, mtrF, mtrR|
+|Penicillin|0.716|0.723|mtrA, mtrC, mtrR|
+|Tetracycline|0.560|0.576|mtrC, mtrR|
+
+
 ## Future Work
 
-
+We plan to continue testing our loss-of-function calling pipeline, including finishing integration of the clustering step and testing on additional bacterial species.
 
 ## NCBI Codeathon Disclaimer
 This software was created as part of an NCBI codeathon, a hackathon-style event focused on rapid innovation. While we encourage you to explore and adapt this code, please be aware that NCBI does not provide ongoing support for it.
