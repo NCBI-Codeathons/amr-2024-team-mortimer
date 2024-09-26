@@ -1,10 +1,30 @@
+rule deduplicate_proteins:
+    input:
+        proteins="data/proteins.faa"
+    output:
+        fasta_out="data/proteins_unique.faa"
+    resources:
+        runtime=120
+    run:
+        unique = []
+        ids = []
+        for rec in SeqIO.parse(input.proteins, "fasta"):
+            if rec.id in ids:
+                continue
+            else:
+                unique.append(rec)
+                ids.append(rec.id)
+        SeqIO.write(unique, output.fasta_out, "fasta")
+
 rule make_blast_db:
     input:
-        "data/proteins.faa"
+        "data/proteins_unique.faa"
     output:
         expand("data/blastdb/protein_db.{ext}", ext=["pdb","phr","pin","pot","psq","ptf","pto"])
     conda:
         "../envs/blast.yml"
+    resources:
+        runtime=120
     shell:
         """
         makeblastdb -in {input} -dbtype prot -out data/blastdb/protein_db
