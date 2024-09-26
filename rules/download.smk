@@ -24,7 +24,7 @@ rule download_proteins:
         """
         mkdir -p data
         datasets download genome taxon "{params.species}" --assembly-level complete --include protein --filename proteins.zip
-        unzip -o proteins.zip
+        unzip -n proteins.zip
         cat ncbi_dataset/data/*/*.faa > data/proteins.faa
         """
 
@@ -48,11 +48,9 @@ checkpoint unzip:
         "data/genomes.zip"
     output:
         directory("ncbi_dataset/data/")
-    shadow:
-        "full"
     shell:
         """
-        unzip -o data/genomes.zip
+        unzip -n data/genomes.zip
         """
 
 def match_annotations(wildcards):
