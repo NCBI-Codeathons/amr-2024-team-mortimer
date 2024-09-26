@@ -29,8 +29,8 @@ rule cluster_pseudogenes:
 	output:
 		"data/lof_matrix.tsv"
 	conda:
-		"envs/conda_environment.yml"
+		"envs/cdhit.yml"
 	shell:
 		"""
-		command to cluster pseudogene sequences
+		bash scripts/cdhit.sh
 		"""
