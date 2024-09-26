@@ -28,7 +28,7 @@ Our project has two goals:
 
 ## Pipeline Requirements
 
-This pipeline uses the workflow manager Snakemake and Mamba for software installation. Additionally, the pipeline requires [Pseudofinder](https://github.com/filip-husnik/pseudofinder/), which is not available on conda.
+This pipeline uses the workflow manager Snakemake and Mamba for software installation. The workflow also uses the python packages pandas and biopython. Additionally, the pipeline requires [Pseudofinder](https://github.com/filip-husnik/pseudofinder/), which is not available on conda.
 
 ### Resources for installing mamba
 Instructions for minimal Mamba installation can be found here: [Miniforge](https://github.com/conda-forge/miniforge)
