@@ -16,7 +16,7 @@ Our project has two goals:
 ## Approach
 
 - Develop a snakemake pipeline to generate a loss of function (LOF) allele presence/absence matrix from bacterial genome assemblies.
-    - Either download PGAP-annotated genomes from NCBI or annotate assembies with bakta/prokka
+    - Download PGAP-annotated genomes from NCBI or annotate assembies with bakta/prokka
     - Identify LOF alleles using pseudofinder
     - Cluster LOF alleles using CD-HIT
 - Compare antimicrobial susceptibility prediction with and without efflux pump LOF alleles.
@@ -39,22 +39,21 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 ### Resources for installing Pseudofinder
 - Download the release from github: `wget https://github.com/filip-husnik/pseudofinder/archive/refs/tags/v1.1.0.tar.gz`
 - Uncompress the archive with tar: `tar -xf v1.1.0.tar.gz`
-## Genetic marker/loci associated with antibiotic resistance
-|Antibiotic| Genetic Loci|
-|----------|-------------|
-|Beta-lactam/Cephalosporin|blaTEM-1, penA_F504L, penA_A510V, penA_G542S, penA_G545S, penA_I312M, penA_N512Y, penA_V316T|
-|Sulfonamide|folP_R228S, folP_F31L|
-|Tetracycline|rpsJ_V57M, tet(M)|
-|Quinolone|gyrA_D95A, gyrA_S91F|
-## TO DO
-- test pseudofinder rule
-- create rule for cdhit
-- write rule to run script that reformats AMRFinder output
-- write script to compare linear models with and without LOF mutations
 
 ## Results
 
+## Genetic marker/loci associated with antibiotic resistance
+|Antibiotic|Genetic Loci|
+|----------|-------------|
+|Azithromycin|23S rRNA, rplD, porB, mtr operon|
+|Ciprofloxacin|gyrA, parC, norM, porB, mtr operon|
+|Ceftriaxone|penA, rpoB, rpoD, porB, mtr operon|
+|Penicillin|blaTEM, penA, porB, mtr operon|
+|Tetracycline|rpsJ, tet(M), porB, mtr operon|
+
 ## Future Work
+
+
 
 ## NCBI Codeathon Disclaimer
 This software was created as part of an NCBI codeathon, a hackathon-style event focused on rapid innovation. While we encourage you to explore and adapt this code, please be aware that NCBI does not provide ongoing support for it.
