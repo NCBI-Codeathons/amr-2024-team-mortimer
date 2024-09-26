@@ -26,14 +26,21 @@ Our project has two goals:
     - Predict MICs using linear regression from AMRFinderPlsu core genes and alleles AND efflux pump LOF
     - Compare predictions
 
-## Installation of Pseudofinder Software
+## Pipeline Requirements
 
-Download the release from github: `wget https://github.com/filip-husnik/pseudofinder/archive/refs/tags/v1.1.0.tar.gz`
-Uncompress the archive with tar: `tar -xf v1.1.0.tar.gz`
+This pipeline uses the workflow manager Snakemake and Mamba for software installation. Additionally, the pipeline requires [Pseudofinder](https://github.com/filip-husnik/pseudofinder/), which is not available on conda.
+
+### Resources for installing mamba
+Instructions for minimal Mamba installation can be found here: [Miniforge](https://github.com/conda-forge/miniforge)
+
+### Resources for installing Snakemake
+Instructions for installing Snakemake can be found here: [Snakemake Installation](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html).
+
+### Resources for installing Pseudofinder
+- Download the release from github: `wget https://github.com/filip-husnik/pseudofinder/archive/refs/tags/v1.1.0.tar.gz`
+- Uncompress the archive with tar: `tar -xf v1.1.0.tar.gz`
 
 ## TO DO
-- finish testing download and renaming rules
-- create appropriate conda environment for pseudofinder
 - test pseudofinder rule
 - create rule for cdhit
 - write rule to run script that reformats AMRFinder output
