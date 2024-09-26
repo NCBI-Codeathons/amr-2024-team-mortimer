@@ -21,5 +21,6 @@ rule predictions:
         "../envs/tidyverse.yml"
     shell:
         """
+	mkdir -p data/ast_predictions
         Rscript scripts/predict_mics.R > {output.rsquared}
         """
