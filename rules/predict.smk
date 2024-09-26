@@ -7,7 +7,7 @@ rule reformat_amrfinderplus:
         "../envs/tidyverse.yml"
     shell:
         """
-        Rscript create_amr_presence_absence.R
+        Rscript scripts/create_amr_presence_absence.R
         """
 
 rule predictions:
