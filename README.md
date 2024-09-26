@@ -39,7 +39,9 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 ### Resources for installing Pseudofinder
 - Download the release from github: `wget https://github.com/filip-husnik/pseudofinder/archive/refs/tags/v1.1.0.tar.gz`
 - Uncompress the archive with tar: `tar -xf v1.1.0.tar.gz`
-
+## Genetic marker/loci assocaited with antibiotic resistance
+|Antibiotic| Genetic Loci|
+|----------|-------------|
 ## TO DO
 - test pseudofinder rule
 - create rule for cdhit
