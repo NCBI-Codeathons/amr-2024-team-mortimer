@@ -18,11 +18,13 @@ rule download_proteins:
         "../envs/ncbi_datasets.yml"
     resources:
         runtime=30
+    shadow:
+        "full"
     shell:
         """
         mkdir -p data
-        datasets download genome taxon {params.species} --assembly-level complete --include protein --filename proteins.zip
-        unzip -o proteins.zip
+        datasets download genome taxon "{params.species}" --assembly-level complete --include protein --filename proteins.zip
+        unzip proteins.zip
         cat ncbi_dataset/data/*/*.faa > data/proteins.faa
         """
 
@@ -51,27 +53,20 @@ checkpoint unzip:
         unzip data/genomes.zip
         """
 
-def match_assemblies_annotations(wildcards):
+def match_annotations(wildcards):
     unzip_output = checkpoints.unzip.get(**wildcards).output[0]
     accession = samples_dict[wildcards.sample]["genbank_accession"]
-    assembly_files = glob.glob(f"{unzip_output}/{accession}/*.fna")
-    if assembly_files:
-        assembly = assembly_files[0]
-    else:
-        raise FileNotFoundError(f"No .fna file found for accession {accession}")
     annotation = f"{unzip_output}/{accession}/genomic.gbff"
     if not os.path.exists(annotation):
         raise FileNotFoundError(f"No genomic.gbff file found for accession {accession}")
-    return {"assembly":assembly, "annotation":annotation}
+    return annotation
 
 rule rename:
     input:
-        unpack(match_assemblies_annotations)
+        match_annotations
     output:
-        assembly="data/assemblies/{sample}.fna",
-        annotation="data/annotations/{sample}.gbff"
+        "data/annotations/{sample}.gbff"
     shell:
         """
-        cp {input.assembly} {output.assembly}
-        cp {input.annotation} {output.annotation}
+        cp {input} {output}
         """
