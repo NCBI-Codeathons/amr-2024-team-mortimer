@@ -39,11 +39,11 @@ create_models <- function(target_antibiotic){
     filter(!is.na(mic_log), is.finite(mic_log))
 
   model1 <- lm(mic_log ~ .-biosample_acc, data=amr_loci_core_antimicrobial, x=TRUE, y=TRUE)
-  write_tsv(tidy(model1) %>% select('term', 'std.error', 'estimate', 'p.value'), glue('data/ast_prediction/{target_antibiotic}_core.tsv'))
+  write_tsv(tidy(model1) %>% select('term', 'std.error', 'estimate', 'p.value'), glue('data/ast_predictions/{target_antibiotic}_core.tsv'))
   print(glue("Adjusted R-squared for {target_antibiotic} with only core genes: {summary(model1)$adj.r.squared}"))
   plus <- amr_loci_core_antimicrobial %>% left_join(amr_loci_plus)
   model2 <- lm(mic_log ~ .-biosample_acc, data=plus, x=TRUE, y=TRUE)
-  write_tsv(tidy(model2) %>% select('term', 'std.error', 'estimate', 'p.value'), glue('data/ast_prediction/{target_antibiotic}_plus.tsv'))
+  write_tsv(tidy(model2) %>% select('term', 'std.error', 'estimate', 'p.value'), glue('data/ast_predictions/{target_antibiotic}_plus.tsv'))
   print(glue("Adjusted R-squared for {target_antibiotic} with plus genes: {summary(model2)$adj.r.squared}"))
   }
 
