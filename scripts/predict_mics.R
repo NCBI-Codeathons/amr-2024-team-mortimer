@@ -18,17 +18,19 @@ mics <- mics %>% mutate(mic_log = log2(mic_numeric))
 
 create_models <- function(target_antibiotic){
   mics_abx <- mics %>% filter(antibiotic == target_antibiotic)
+  # remove MICs that are uncertain about susceptibility cutoffs
+  mics_abx <- mics_abx %>% filter(!mic %in% c("<=4.0","<=4", "<=8.0"))
   if (target_antibiotic == "azithromycin"){
-    amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("23S"), starts_with("rpl"), starts_with("mtr"), starts_with("porB"))
+	amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("23S"), starts_with("rpl"), starts_with("mtr"), starts_with("porB"))
   }
   if (target_antibiotic == "ceftriaxone"){
-    amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("rpo"), starts_with("penA"), starts_with("mtr"), starts_with("porB"))
+	amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("rpo"), starts_with("penA"), starts_with("ponA"), starts_with("mtr"), starts_with("porB"), -rpoB_H553N)
   }
   if (target_antibiotic == "ciprofloxacin"){
     amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("gyr"), starts_with("par"), starts_with("nor"), starts_with("mtr"), starts_with("porB"))
   }
   if (target_antibiotic == "penicillin"){
-    amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("bla"), starts_with("pen"), starts_with("mtr"), starts_with("porB"))
+    amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("bla"), starts_with("pen"), starts_with("ponA"), starts_with("mtr"), starts_with("porB"))
   }
   if (target_antibiotic == "tetracycline"){
     amr_loci_core_antimicrobial <- amr_loci_core %>% select(biosample_acc, starts_with("tet"), starts_with("rpsJ"), starts_with("mtr"), starts_with("porB"))
