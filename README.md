@@ -81,7 +81,9 @@ Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinde
 |Tetracycline|0.560|0.576|mtrC, mtrR|
 
 
+
 **Analysis of AMR Genes and Point Mutations in Antimicrobial Resistance**
+
 R was used to examine data from amrfinderplus to examine different resistance mechanisms for different genes. 
 script: create_amr_point_bargraph.R
 
