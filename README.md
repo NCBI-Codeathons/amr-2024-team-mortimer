@@ -81,6 +81,20 @@ Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinde
 |Tetracycline|0.560|0.576|mtrC, mtrR|
 
 
+**Analysis of AMR Genes and Point Mutations in Antimicrobial Resistance**
+R was used to examine data from amrfinderplus to examine different resistance mechanisms for different genes. 
+script: create_amr_point_bargraph.R
+
+-AMR refers to antimicrobial resistance genes or elements that confer resistance to antibiotics via gene acquisition.  These are typically whole genes (like resistance genes) or gene variants, such as efflux pumps, beta-lactamases, or other known genes that mediate resistance by producing proteins.
+
+-POINT refers to point mutations in genes, rather than the presence of an entire resistance gene.  Point mutations are single nucleotide changes in specific genes that can alter the function of proteins, leading to resistance.  POINT typically refers to mutations in chromosomal genes that are known to contribute to resistance. These mutations can affect target sites of antibiotics, reduce drug binding, or alter enzyme function.
+
+Results: 
+![barplot_element_subtype](https://github.com/user-attachments/assets/193ed7b3-b846-4c21-9174-07a531e41435)
+
+
+
+
 ## Future Work
 
 We plan to continue testing our loss-of-function calling pipeline, including finishing integration of the clustering step and testing on additional bacterial species.
