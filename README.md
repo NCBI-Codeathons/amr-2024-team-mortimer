@@ -83,6 +83,7 @@ Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinde
 **Presence or Absence of AMR genes**
 
 R was used to create a matrix showing presence or absence of AMR genes for unique BioSamples with data from amrfinderplus with 0 denoting absence and 1 denoting presence. 
+
 script: create_amr_presence_absence.R
 
 **Analysis of AMR Genes and Point Mutations in Antimicrobial Resistance**
