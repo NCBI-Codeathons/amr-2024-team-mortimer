@@ -59,13 +59,13 @@ We were able to generate the steps to create a matrix of loss-of-function allele
 
 R was used to create a matrix showing presence or absence of AMR genes for unique BioSamples with data from amrfinderplus with 0 denoting absence and 1 denoting presence. 
 
-script: create_amr_presence_absence.R
+Script: [create_amr_presence_absence.R](https://github.com/NCBI-Codeathons/amr-2024-team-mortimer/blob/main/scripts/create_amr_presence_absence.R)
 
 ### Analysis of AMR Genes and Point Mutations in Antimicrobial Resistance
 
 R was used to examine data from amrfinderplus to examine different resistance mechanisms for different genes. 
 
-script: create_amr_point_bargraph.R
+Script: [create_amr_point_bargraph.R](https://github.com/NCBI-Codeathons/amr-2024-team-mortimer/blob/main/scripts/create_amr_point_bargraph.R)
 
 -AMR refers to antimicrobial resistance genes or elements that confer resistance to antibiotics via gene acquisition.  These are typically whole genes (like resistance genes) or gene variants, such as efflux pumps, beta-lactamases, or other known genes that mediate resistance by producing proteins.
 
@@ -77,7 +77,7 @@ script: create_amr_point_bargraph.R
 
 R was used to examine the drug resistance for each gene.  The graph below shows the total number of BioSamples with a given resistance for each gene.  Note, the threshold was for resistances with occurrences in more than 10 BioSamples. 
 
-script: create_amr_by_gene.R
+Script: [create_amr_by_gene.R](https://github.com/NCBI-Codeathons/amr-2024-team-mortimer/blob/main/scripts/create_amr_by_gene.R)
 
 ![dot_plot_amr](https://github.com/user-attachments/assets/e05e1614-387c-4f06-96fa-ebdac29cbe3f)
 
@@ -85,6 +85,8 @@ script: create_amr_by_gene.R
 ### AST Prediction
 
 Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinderPlus results from Pathogen Detection, we predicted log-transformed MICs from known resistance-associated loci in *N. gonorrhoeae*.
+
+Script: [predict_mics.R](https://github.com/NCBI-Codeathons/amr-2024-team-mortimer/blob/main/scripts/predict_mics.R)
 
 #### Genetic loci included in models
 
