@@ -1,4 +1,4 @@
-# Loss of function alleles in *Neisseria gonorrhoeae* and their impact on antimicrobial susceptibility
+# Loss-of-function alleles in *Neisseria gonorrhoeae* and their impact on antimicrobial susceptibility
 
 List of participants and affiliations:
 - Tatum Mortimer, Department of Population Health, University of Georgia (Team Leader)
@@ -9,8 +9,10 @@ List of participants and affiliations:
 
 ## Project Goals
 
+In *Neisseria gonorrhoeae*, loss-of-function mutations in genes encoding the Mtr efflux pump have been demonstrated to increase susceptibility to multiple antimicrobials ([1](https://doi.org/10.1099/00221287-144-3-621),[2](https://doi.org/10.1038/s41467-020-17980-1)). Loss-of-function of the Mtr repressor, MtrR, leads to increased antimicrobial resistance [3](https://doi.org/10.1111/j.1365-2958.2008.06424.x). The *mtr* operon is also regulated by an activator, MtrA, and loss-of-function alleles occur in clinical isolates [4](https://doi.org/10.1046/j.1365-2958.1999.01517.x); however, it's unclear what impact these loss-of-function alleles have on prediction of antimicrobial susceptibility. *N. gonorrhoeae* also encodes several other efflux pumps [5](https://doi.org/10.1007/978-3-319-39658-3_17), and the contribution of these pumps to antimicrobial susceptibility in clinical isolates is unknown.
+
 Our project has two goals:
-1. Develop a pipeline to identify loss of function alleles across the pangenome from bacterial genome assemblies and anntotations.
+1. Develop a pipeline to systematically identify loss-of-function alleles across the pangenome from bacterial genome assemblies and anntotations.
 2. Assess the contribution of loss of function alleles in efflux pump associated genes to prediction of antimicrobial susceptibility data in *Neisseria gonorrhoeae*.
 
 ## Approach
