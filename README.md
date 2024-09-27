@@ -92,22 +92,22 @@ Script: [predict_mics.R](https://github.com/NCBI-Codeathons/amr-2024-team-mortim
 
 |Antibiotic|Genetic Loci|
 |----------|-------------|
-|Azithromycin|23S rRNA, rplD, porB, mtr operon|
-|Ciprofloxacin|gyrA, parC, norM, porB, mtr operon|
-|Ceftriaxone|penA, rpoB, rpoD, porB, mtr operon|
-|Penicillin|blaTEM, penA, porB, mtr operon|
-|Tetracycline|rpsJ, tet(M), porB, mtr operon|
+|Azithromycin|23S rRNA, *rplD*, *rplV*, *porB*, *mtr* operon|
+|Ciprofloxacin|*gyrA*, *parC*, *norM*, *porB*, *mtr* operon|
+|Ceftriaxone|*penA*, *ponA*, *rpoB* R201H, *rpoD*, *porB*, *mtr* operon|
+|Penicillin|*bla*TEM, *penA*, *ponA*, *porB*, *mtr* operon|
+|Tetracycline|*rpsJ*, *tet(M)*, *porB*, *mtr* operon|
 
 #### Prediction of antimicrobial susceptibility is improved by the addition of loss-of-function variation in the mtr operon
 
 
 |Antibiotic|Adjusted R-squared core model|Adjusted R-squared plus model|Significant plus loci|
 |----------|-----------------------------|-----------------------------|---------------------|
-|Azithromycin|0.332|0.430|mtrC, mtrR|
-|Ciprofloxacin|0.916|0.918|mtrC, mtrR|
-|Ceftriaxone|0.612|0.631|mtrC, mtrF, mtrR|
-|Penicillin|0.716|0.723|mtrA, mtrC, mtrR|
-|Tetracycline|0.560|0.576|mtrC, mtrR|
+|Azithromycin|0.333|0.432|*mtrC*, *mtrR*|
+|Ciprofloxacin|0.917|0.918|*mtrC*, *mtrR*|
+|Ceftriaxone|0.611|0.631|*mtrC*, *mtrF*, *mtrR*|
+|Penicillin|0.722|0.729|*mtrA*, *mtrC*, *mtrR*|
+|Tetracycline|0.812|0.818|*mtrC*, *mtrR*|
 
 ## Future Work
 
