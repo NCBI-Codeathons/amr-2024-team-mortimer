@@ -85,6 +85,7 @@ Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinde
 **Analysis of AMR Genes and Point Mutations in Antimicrobial Resistance**
 
 R was used to examine data from amrfinderplus to examine different resistance mechanisms for different genes. 
+
 script: create_amr_point_bargraph.R
 
 -AMR refers to antimicrobial resistance genes or elements that confer resistance to antibiotics via gene acquisition.  These are typically whole genes (like resistance genes) or gene variants, such as efflux pumps, beta-lactamases, or other known genes that mediate resistance by producing proteins.
