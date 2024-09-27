@@ -41,8 +41,8 @@ Instructions for installing Snakemake can be found here: [Snakemake Installation
 - Uncompress the archive with tar: `tar -xf v1.1.0.tar.gz`
 
 ### Resources for installing R, Rtools, and RStudio
--R and Rtools can be downloaded and installed from the CRAN website: https://cran.r-project.org/
--Rstudio can be downloaded from the Posit website: https://posit.co/download/rstudio-desktop/
+-R and Rtools can be downloaded and installed from the CRAN website: `https://cran.r-project.org/`
+-Rstudio can be downloaded from the Posit website: `https://posit.co/download/rstudio-desktop/`
 -Software versions for this project: R-4.4.1; Rtools4.4; RStudio 2024.09.0+375
 
 ## Results
