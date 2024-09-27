@@ -80,7 +80,10 @@ Using MICs collected from primary literatue (see `config/mics.txt`) and AMRFinde
 |Penicillin|0.716|0.723|mtrA, mtrC, mtrR|
 |Tetracycline|0.560|0.576|mtrC, mtrR|
 
+**Presence or Absence of AMR genes**
 
+R was used to create a matrix showing presence or absence of AMR genes for unique BioSamples with data from amrfinderplus with 0 denoting absence and 1 denoting presence. 
+script: create_amr_presence_absence.R
 
 **Analysis of AMR Genes and Point Mutations in Antimicrobial Resistance**
 
@@ -95,7 +98,13 @@ script: create_amr_point_bargraph.R
 Results: 
 ![barplot_element_subtype](https://github.com/user-attachments/assets/193ed7b3-b846-4c21-9174-07a531e41435)
 
+**BioSample Drug Resistance by Gene**
 
+R was used to examine the drug resistance for each gene.  The graph below shows the total number of BioSamples with a given resistance for each gene.  Note, the threshold was for resistances with occurrences in more than 10 BioSamples. 
+
+script: create_amr_by_gene.R
+
+![dot_plot_amr](https://github.com/user-attachments/assets/e05e1614-387c-4f06-96fa-ebdac29cbe3f)
 
 
 ## Future Work
