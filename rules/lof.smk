@@ -4,7 +4,7 @@ rule deduplicate_proteins:
     output:
         fasta_out="data/proteins_unique.faa"
     resources:
-        runtime=120
+        runtime=360
     run:
         unique = []
         ids = []
@@ -43,7 +43,7 @@ rule pseudofinder:
         mem=10000,
     shell:
         """
-        python3 ../pseudofinder-1.1.0/pseudofinder.py annotate --threads {threads} --genome {input.annotation} --database data/blastdb/protein_db --outprefix data/pseudofinder/{wildcards.sample}/{wildcards.sample}
+        python3 pseudofinder-1.1.0/pseudofinder.py annotate --threads {threads} --genome {input.annotation} --database data/blastdb/protein_db --outprefix data/pseudofinder/{wildcards.sample}/{wildcards.sample}
         """
 
 rule cluster_pseudogenes:
