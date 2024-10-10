@@ -43,7 +43,7 @@ rule pseudofinder:
         mem=10000,
     shell:
         """
-        python3 /home/tdm/software/pseudofinder/pseudofinder.py annotate --threads {threads} --genome {input.annotation} --database data/blastdb/protein_db --outprefix data/pseudofinder/{wildcards.sample}/{wildcards.sample}
+        python3 software/pseudofinder/pseudofinder.py annotate --threads {threads} --genome {input.annotation} --database data/blastdb/protein_db --outprefix data/pseudofinder/{wildcards.sample}/{wildcards.sample}
         """
 
 rule cluster_pseudogenes:
