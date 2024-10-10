@@ -15,4 +15,6 @@ rule all:
         "data/genomes.zip",
         "data/proteins.faa",
         expand("data/pseudofinder/{sample}/{sample}_pseudos.fasta", sample=samples["sample"]),
-        "data/ast_predictions/model_rsquared.txt"
+        "data/ast_predictions/model_rsquared.txt",
+        "data/clustered_pseudo_sequences.fasta",
+        "data/lof_presence_absence_matrix.tsv"
