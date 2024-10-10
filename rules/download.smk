@@ -10,8 +10,7 @@ rule generate_ncbi_datasets_input:
 
 rule download_proteins:
     output:
-        temp("data/proteins.zip"),
-        temp("data/proteins.faa")
+        "data/proteins.faa"
     params:
         species=config["species"]
     conda:
