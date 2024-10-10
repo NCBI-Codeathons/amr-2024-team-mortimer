@@ -28,14 +28,14 @@ def create_presence_absence_matrix(clusters):
     return matrix
 
 # Load the .clstr file
-clstr_file = "clustered_output.fasta.clstr"  # Path to your .clstr file
+clstr_file = "data/clustered_pseudo_sequences.fasta.clstr"  # Path to your .clstr file
 clusters = parse_clstr(clstr_file)
 
 # Create the presence-absence matrix
 matrix = create_presence_absence_matrix(clusters)
 
 # Export to .tsv file
-output_file = "presence_absence_matrix.tsv"
+output_file = "data/lof_presence_absence_matrix.tsv"
 matrix.to_csv(output_file, sep='\t')
 
 print(f"Presence-absence matrix saved to {output_file}")
